@@ -1,3 +1,6 @@
+#Be aware of current links
+#Microsoft.UI.Xaml.  changes frequently
+
 function InstallWinGet {
     [CmdletBinding()]
     param ()
