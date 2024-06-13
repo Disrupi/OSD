@@ -26,5 +26,6 @@ $Params = @{
     ZTI = $true
     Firmware = $true
 }
-Start-OSDCloud @Params
-wpeutil reboot
+#Start-OSDCloud @Params
+#wpeutil reboot
+start-osdcloudgui
