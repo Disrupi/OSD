@@ -5,16 +5,16 @@ Install-Module OSD -Force -Skippublishercheck | out-null
 Install-Module MSCatalog -Force -Skippublishercheck | out-null
 
 
-#$Global:MyOSDCloud = @{
-    #DriverPackName = 'none'
-    #ApplyManufacturerDrivers = $false
-    #ApplyCatalogDrivers = $true
-    #ApplyCatalogFirmware = $true
-    #MSCatalogDiskDrivers = $true
-    #MSCatalogNetDrivers = $true
-    #MSCatalogScsiDrivers = $true
-    #MSCatalogFirmware = $true
-#}
+$Global:MyOSDCloud = @{
+    DriverPackName = 'none'
+    ApplyManufacturerDrivers = $false
+    ApplyCatalogDrivers = $true
+    ApplyCatalogFirmware = $true
+    MSCatalogDiskDrivers = $true
+    MSCatalogNetDrivers = $true
+    MSCatalogScsiDrivers = $true
+    MSCatalogFirmware = $true
+}
 
 #
 
