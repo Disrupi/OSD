@@ -42,8 +42,8 @@ $Params = @{
     OSBuild = "22H2"
     OSEdition = "Enterprise"
     OSLanguage = "en-us"
-    ZTI = $true
-    Firmware = $true
+    #ZTI = $true
+    #Firmware = $true
 }
 Start-OSDCloud @Params
 #wpeutil reboot
