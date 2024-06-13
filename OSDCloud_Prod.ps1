@@ -17,15 +17,20 @@ Install-Module MSCatalog -Force -Skippublishercheck | out-null
 #}
 
 $Global:MyOSDCloud = [ordered]@{
-    #DriverPackName = 'Microsoft Update Catalog'
+    Restart = [bool]$False
+    RecoveryPartition = [bool]$true
+    OEMActivation = [bool]$True
     WindowsUpdate = [bool]$true
     WindowsUpdateDrivers = [bool]$true
     WindowsDefenderUpdate = [bool]$true
+    SetTimeZone = [bool]$true
     ClearDiskConfirm = [bool]$False
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB = [bool]$true
     CheckSHA1 = [bool]$true
 }
+
+$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
 
 
 
