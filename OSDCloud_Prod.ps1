@@ -27,4 +27,4 @@ $Params = @{
     Firmware = $true
 }
 Start-OSDCloud @Params
-#wpeutil reboot
+wpeutil reboot
