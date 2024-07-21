@@ -31,7 +31,7 @@ $Global:MyOSDCloud = [ordered]@{
     #CheckSHA1 = [bool]$true
 }
 
-#$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
+$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
 
 
 
