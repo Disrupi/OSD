@@ -28,6 +28,11 @@ $Global:MyOSDCloud = [ordered]@{
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB = [bool]$false
     updateFirmware = [bool]$false
+    MSCatalogDiskDrivers = $false
+    MSCatalogNetDrivers = $false
+    MSCatalogScsiDrivers = $false
+    MSCatalogFirmware = $false
+#}
     #CheckSHA1 = [bool]$true
 }
 
