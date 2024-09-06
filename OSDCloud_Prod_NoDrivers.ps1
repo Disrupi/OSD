@@ -32,6 +32,7 @@ $Global:MyOSDCloud = [ordered]@{
     MSCatalogNetDrivers = $false
     MSCatalogScsiDrivers = $false
     MSCatalogFirmware = $false
+    DriverPack = $null
 #}
     #CheckSHA1 = [bool]$true
 }
