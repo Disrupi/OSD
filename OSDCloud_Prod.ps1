@@ -1,3 +1,4 @@
+#New-OSDCloudUSB -fromIsoFile C:\ProgramData\OSDCloud\Templates\prod_v3\OSDCloud_NoPrompt.iso
 Write-Host  -ForegroundColor Yellow "Loading OSDCloud..."
 
 
