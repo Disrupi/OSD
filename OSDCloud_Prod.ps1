@@ -19,6 +19,10 @@ Install-Module MSCatalog -Force -Skippublishercheck | out-null
 #}
 
 $Global:MyOSDCloud = [ordered]@{
+    OSVersion = "Windows 11"
+    OSBuild = "24H2"
+    OSEdition = "Enterprise"
+    OSLanguage = "en-us"
     Restart = [bool]$True
     RecoveryPartition = [bool]$true
     OEMActivation = [bool]$True
@@ -49,7 +53,7 @@ $Params = @{
     OSEdition = "Enterprise"
     OSLanguage = "en-us"
     #ZTI = $true
-    Firmware = $false
+    #Firmware = $false
 }
 Start-OSDCloud @Params
 #wpeutil reboot
