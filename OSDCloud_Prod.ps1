@@ -45,7 +45,7 @@ $Global:MyOSDCloud
 
 $Params = @{
     OSVersion = "Windows 11"
-    OSBuild = "23H2"
+    OSBuild = "24H2"
     OSEdition = "Enterprise"
     OSLanguage = "en-us"
     #ZTI = $true
