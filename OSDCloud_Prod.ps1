@@ -45,7 +45,7 @@ $Global:MyOSDCloud.DriverPackName = 'lenovo'
 
 
 
-#$Global:MyOSDCloud
+$Global:MyOSDCloud
 
 #$Params = @{
    # OSVersion = "Windows 11"
