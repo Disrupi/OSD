@@ -28,12 +28,16 @@ $Global:MyOSDCloud = [ordered]@{
     SetTimeZone = [bool]$true
     ClearDiskConfirm = [bool]$False
     ShutdownSetupComplete = [bool]$false
-    SyncMSUpCatDriverUSB = [bool]$false
-    updateFirmware = [bool]$false
-    #CheckSHA1 = [bool]$true
+    SyncMSUpCatDriverUSB = [bool]$true
+    updateFirmware = [bool]$true
+    CheckSHA1 = [bool]$true
 }
 
-$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
+#for all devices
+#$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
+
+#for lenovo
+$Global:MyOSDCloud.DriverPackName = 'lenovo'
 
 
 
