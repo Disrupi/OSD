@@ -45,16 +45,16 @@ $Global:MyOSDCloud.DriverPackName = 'lenovo'
 
 
 
-$Global:MyOSDCloud
+#$Global:MyOSDCloud
 
-$Params = @{
-    OSVersion = "Windows 11"
-    OSBuild = "23H2"
-    OSEdition = "Enterprise"
-    OSLanguage = "en-us"
+#$Params = @{
+   # OSVersion = "Windows 11"
+   # OSBuild = "23H2"
+   # OSEdition = "Enterprise"
+  #  OSLanguage = "en-us"
     #ZTI = $true
     #Firmware = $false
-}
-Start-OSDCloud @Params
+#}
+Start-OSDCloud #@Params
 #wpeutil reboot
 #start-osdcloudgui
