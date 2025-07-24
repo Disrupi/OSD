@@ -34,10 +34,10 @@ $Global:MyOSDCloud = [ordered]@{
 }
 
 #for all devices
-$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
+#$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
 
 #for lenovo
-#$Global:MyOSDCloud.DriverPackName = 'Lenovo'
+$Global:MyOSDCloud.DriverPackName = 'Lenovo'
 
 
 
