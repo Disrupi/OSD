@@ -24,6 +24,7 @@ $Global:MyOSDCloud = [ordered]@{
     OEMActivation = [bool]$True
     WindowsUpdate = [bool]$true
     #WindowsUpdateDrivers = [bool]$true
+    WindowsUpdateDrivers = [bool]$false
     WindowsDefenderUpdate = [bool]$true
     SetTimeZone = [bool]$true
     ClearDiskConfirm = [bool]$False
