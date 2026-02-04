@@ -1,58 +1,63 @@
-#New-OSDCloudUSB -fromIsoFile C:\ProgramData\OSDCloud\Templates\prod_v3\OSDCloud_NoPrompt.iso
-Write-Host  -ForegroundColor Yellow "Loading OSDCloud..."
+Write-Host -ForegroundColor Yellow "Loading OSDCloud..."
+
+Install-Module OSD -Force -SkipPublisherCheck | Out-Null
+Install-Module MSCatalog -Force -SkipPublisherCheck | Out-Null
 
 
-Install-Module OSD -Force -Skippublishercheck | out-null
-Install-Module MSCatalog -Force -Skippublishercheck | out-null
-#########
-#########
+# ==================================================
+# HARD STOPS — must be set BEFORE MyOSDCloud
+# ==================================================
 
-#$Global:MyOSDCloud = @{
-   # DriverPackName = 'Microsoft Update Catalog'
-   # ApplyManufacturerDrivers = $false
-   # ApplyCatalogDrivers = $true
-   # ApplyCatalogFirmware = $true
-   # MSCatalogDiskDrivers = $true
-   # MSCatalogNetDrivers = $true
-   # MSCatalogScsiDrivers = $true
-   # MSCatalogFirmware = $true
-#}
+# Absolute driver kill switch (vendor + catalog + WU)
+$Global:OSDCloudDrivers = $false
+
+# Prevent any online content (OS, drivers, firmware)
+$Global:OSDCloudOffline = $true
+
+# Defensive cleanup in case WinPE session had state
+Remove-Variable -Name OSDCloudDriverPack -Scope Global -ErrorAction SilentlyContinue
+Remove-Variable -Name MyOSDCloudDriverPack -Scope Global -ErrorAction SilentlyContinue
+Remove-Variable -Name OSDCloudDriverSource -Scope Global -ErrorAction SilentlyContinue
+
+
+# ==================================================
+# Main OSDCloud configuration
+# ==================================================
 
 $Global:MyOSDCloud = [ordered]@{
-    Restart = [bool]$True
-    RecoveryPartition = [bool]$true
-    OEMActivation = [bool]$True
-    WindowsUpdate = [bool]$true
-    #WindowsUpdateDrivers = [bool]$true
-    WindowsUpdateDrivers = [bool]$false
-    WindowsDefenderUpdate = [bool]$true
-    SetTimeZone = [bool]$true
-    ClearDiskConfirm = [bool]$False
-    ShutdownSetupComplete = [bool]$false
-    SyncMSUpCatDriverUSB = [bool]$false
-    updateFirmware = [bool]$true
-    CheckSHA1 = [bool]$true
-    DriverPack = $null
+    Restart                  = $true
+    RecoveryPartition        = $true
+    OEMActivation            = $true
+
+    WindowsUpdate            = $true
+    WindowsUpdateDrivers     = $false
+    WindowsDefenderUpdate    = $true
+
+    SyncMSUpCatDriverUSB     = $false
+    DriverPack               = $null
+
+    # IMPORTANT: firmware updates can re-trigger OEM logic
+    updateFirmware           = $false
+
+    SetTimeZone              = $true
+    ClearDiskConfirm         = $false
+    ShutdownSetupComplete    = $false
+    CheckSHA1                = $true
 }
 
-#for all devices
-#$Global:MyOSDCloud.DriverPackName = 'Microsoft Update Catalog'
-
-#for lenovo
-#$Global:MyOSDCloud.DriverPackName = 'Lenovo'
-
-$Global:OSDCloudDrivers = $false
-$Global:OSDCloudOffline = $true
 $Global:MyOSDCloud
 
+
+# ==================================================
+# OS selection — local media only
+# ==================================================
+
 $Params = @{
-    OSVersion = "Windows 11"
-    OSBuild = "24H2"
-    OSEdition = "Enterprise"
+    OSVersion  = "Windows 11"
+    OSBuild    = "24H2"
+    OSEdition  = "Enterprise"
     OSLanguage = "en-us"
-    #ZTI = $true
-    #Firmware = $false
+    # ZTI = $true
 }
+
 Start-OSDCloud @Params
-#wpeutil reboot
-#start-osdcloudgui
