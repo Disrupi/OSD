@@ -32,6 +32,7 @@ $Global:MyOSDCloud = [ordered]@{
     SyncMSUpCatDriverUSB = [bool]$false
     updateFirmware = [bool]$true
     CheckSHA1 = [bool]$true
+    DriverPack = $null
 }
 
 #for all devices
@@ -42,7 +43,6 @@ $Global:MyOSDCloud = [ordered]@{
 
 $Global:OSDCloudDrivers = $false
 $Global:OSDCloudOffline = $true
-$Global:MyOSDCloud.DriverPackName = 'null'
 $Global:MyOSDCloud
 
 $Params = @{
