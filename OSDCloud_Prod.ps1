@@ -41,7 +41,7 @@ $Global:MyOSDCloud = [ordered]@{
 #$Global:MyOSDCloud.DriverPackName = 'Lenovo'
 
 
-
+$Global:OSDCloudOffline = $true
 $Global:MyOSDCloud
 
 $Params = @{
@@ -49,7 +49,6 @@ $Params = @{
     OSBuild = "24H2"
     OSEdition = "Enterprise"
     OSLanguage = "en-us"
-    UseLocalMedia = $true
     #ZTI = $true
     #Firmware = $false
 }
