@@ -29,7 +29,7 @@ $Global:MyOSDCloud = [ordered]@{
     SetTimeZone = [bool]$true
     ClearDiskConfirm = [bool]$False
     ShutdownSetupComplete = [bool]$false
-    SyncMSUpCatDriverUSB = [bool]$true
+    SyncMSUpCatDriverUSB = [bool]$false
     updateFirmware = [bool]$true
     CheckSHA1 = [bool]$true
 }
@@ -49,6 +49,7 @@ $Params = @{
     OSBuild = "24H2"
     OSEdition = "Enterprise"
     OSLanguage = "en-us"
+    UseLocalMedia = $true
     #ZTI = $true
     #Firmware = $false
 }
