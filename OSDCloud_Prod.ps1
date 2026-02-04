@@ -5,51 +5,47 @@ Install-Module MSCatalog -Force -SkipPublisherCheck | Out-Null
 
 
 # ==================================================
-# HARD STOPS — must be set BEFORE MyOSDCloud
+# HARD STOPS
 # ==================================================
 
-# Absolute driver kill switch (vendor + catalog + WU)
+$Global:OSDCloudOffline  = $true
 $Global:OSDCloudDrivers = $false
 
-# Prevent any online content (OS, drivers, firmware)
-$Global:OSDCloudOffline = $true
-
-# Defensive cleanup in case WinPE session had state
 Remove-Variable -Name OSDCloudDriverPack -Scope Global -ErrorAction SilentlyContinue
 Remove-Variable -Name MyOSDCloudDriverPack -Scope Global -ErrorAction SilentlyContinue
 Remove-Variable -Name OSDCloudDriverSource -Scope Global -ErrorAction SilentlyContinue
 
 
 # ==================================================
-# Main OSDCloud configuration
+# MAIN CONFIG
 # ==================================================
 
 $Global:MyOSDCloud = [ordered]@{
-    Restart                  = $true
-    RecoveryPartition        = $true
-    OEMActivation            = $true
+    Restart               = $true
+    RecoveryPartition     = $true
+    OEMActivation         = $true
 
-    WindowsUpdate            = $true
-    WindowsUpdateDrivers     = $false
-    WindowsDefenderUpdate    = $true
+    WindowsUpdate         = $true
+    WindowsUpdateDrivers  = $false
+    WindowsDefenderUpdate = $true
 
-    SyncMSUpCatDriverUSB     = $false
-    DriverPack               = $null
+    SyncMSUpCatDriverUSB  = $false
+    updateFirmware        = $false
 
-    # IMPORTANT: firmware updates can re-trigger OEM logic
-    updateFirmware           = $false
-
-    SetTimeZone              = $true
-    ClearDiskConfirm         = $false
-    ShutdownSetupComplete    = $false
-    CheckSHA1                = $true
+    SetTimeZone           = $true
+    ClearDiskConfirm      = $false
+    ShutdownSetupComplete = $false
+    CheckSHA1             = $true
 }
+
+# THIS IS THE CRITICAL LINE
+$Global:MyOSDCloud.DriverPackName = 'None'
 
 $Global:MyOSDCloud
 
 
 # ==================================================
-# OS selection — local media only
+# OS SELECTION
 # ==================================================
 
 $Params = @{
@@ -57,7 +53,6 @@ $Params = @{
     OSBuild    = "24H2"
     OSEdition  = "Enterprise"
     OSLanguage = "en-us"
-    # ZTI = $true
 }
 
 Start-OSDCloud @Params
