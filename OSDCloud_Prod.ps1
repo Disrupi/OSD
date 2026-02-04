@@ -42,6 +42,7 @@ $Global:MyOSDCloud = [ordered]@{
 
 $Global:OSDCloudDrivers = $false
 $Global:OSDCloudOffline = $true
+$Global:MyOSDCloud.DriverPackName = 'null'
 $Global:MyOSDCloud
 
 $Params = @{
