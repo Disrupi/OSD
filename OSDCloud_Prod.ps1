@@ -40,7 +40,7 @@ $Global:MyOSDCloud = [ordered]@{
 #for lenovo
 #$Global:MyOSDCloud.DriverPackName = 'Lenovo'
 
-
+$Global:OSDCloudDrivers = $false
 $Global:OSDCloudOffline = $true
 $Global:MyOSDCloud
 
