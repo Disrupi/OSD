@@ -30,7 +30,8 @@ $Global:MyOSDCloud = [ordered]@{
     WindowsDefenderUpdate = $true
 
     SyncMSUpCatDriverUSB  = $false
-    updateFirmware        = $false
+    #maybe have to disable this one in order to prevent drivers
+    updateFirmware        = $true
 
     SetTimeZone           = $true
     ClearDiskConfirm      = $false
