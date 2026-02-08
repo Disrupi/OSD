@@ -52,7 +52,7 @@ $Global:MyOSDCloud
 $Params = @{
     OSVersion  = "Windows 11"
     OSBuild    = "24H2"
-    OSEdition  = "Enterprise"
+    OSEdition  = "Pro"
     OSLanguage = "en-us"
 }
 
