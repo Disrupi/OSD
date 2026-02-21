@@ -81,4 +81,4 @@ reg add "HKLM\OfflineSOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" 
 reg unload HKLM\OfflineSOFTWARE
 
 # Now manually reboot
-#Restart-Computer -Force
+Restart-Computer -Force
