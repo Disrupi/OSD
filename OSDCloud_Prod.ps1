@@ -72,9 +72,13 @@ reg add "HKLM\OfflineSOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" `
     /d 1 `
     /f
 
+reg add "HKLM\OfflineSOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" `
+    /v SearchOrderConfig `
+    /t REG_DWORD `
+    /d 0 `
+    /f
+
 reg unload HKLM\OfflineSOFTWARE
 
-Write-Host -ForegroundColor Green "Policy injected successfully."
-
 # Now manually reboot
-Restart-Computer -Force
+#Restart-Computer -Force
