@@ -21,7 +21,8 @@ Remove-Variable -Name OSDCloudDriverSource -Scope Global -ErrorAction SilentlyCo
 # ==================================================
 
 $Global:MyOSDCloud = [ordered]@{
-    Restart               = $true
+    #setting this to disable in order to inject regkeys to disable Driver Updates in ooBE
+    Restart               = $false
     RecoveryPartition     = $true
     OEMActivation         = $true
 
@@ -57,3 +58,23 @@ $Params = @{
 }
 
 Start-OSDCloud @Params
+# ==================================================
+# OFFLINE REGISTRY INJECTION
+# ==================================================
+
+Write-Host -ForegroundColor Cyan "Injecting Windows Update driver block policy..."
+
+reg load HKLM\OfflineSOFTWARE C:\Windows\System32\Config\SOFTWARE
+
+reg add "HKLM\OfflineSOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" `
+    /v ExcludeWUDriversInQualityUpdate `
+    /t REG_DWORD `
+    /d 1 `
+    /f
+
+reg unload HKLM\OfflineSOFTWARE
+
+Write-Host -ForegroundColor Green "Policy injected successfully."
+
+# Now manually reboot
+Restart-Computer -Force
