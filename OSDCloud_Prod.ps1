@@ -22,6 +22,8 @@ Remove-Variable -Name OSDCloudDriverSource -Scope Global -ErrorAction SilentlyCo
 
 $Global:MyOSDCloud = [ordered]@{
     #setting this to disable in order to inject regkeys to disable Driver Updates in ooBE
+    #Restart               = $false
+    
     Restart               = $false
     RecoveryPartition     = $true
     OEMActivation         = $true
@@ -58,6 +60,8 @@ $Params = @{
 }
 
 Start-OSDCloud @Params
+
+<#
 # ==================================================
 # OFFLINE REGISTRY INJECTION
 # ==================================================
@@ -82,3 +86,5 @@ reg unload HKLM\OfflineSOFTWARE
 
 # Now manually reboot
 Restart-Computer -Force
+
+#>
