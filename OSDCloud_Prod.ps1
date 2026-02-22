@@ -64,6 +64,7 @@ Start-OSDCloud @Params
 <#
 # ==================================================
 # OFFLINE REGISTRY INJECTION
+#make sure to disable reboot in $Global:MyOSDCloud before running this, as the device will reboot before running script below
 # ==================================================
 
 Write-Host -ForegroundColor Cyan "Injecting Windows Update driver block policy..."
