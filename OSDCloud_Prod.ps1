@@ -24,7 +24,7 @@ $Global:MyOSDCloud = [ordered]@{
     #setting this to disable in order to inject regkeys to disable Driver Updates in ooBE
     #Restart               = $false
     
-    Restart               = $false
+    Restart               = $true
     RecoveryPartition     = $true
     OEMActivation         = $true
 
