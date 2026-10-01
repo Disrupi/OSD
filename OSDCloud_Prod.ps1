@@ -8,7 +8,7 @@ Install-Module MSCatalog -Force -SkipPublisherCheck | Out-Null
 # HARD STOPS
 # ==================================================
 
-$Global:OSDCloudOffline  = $false
+$Global:OSDCloudOffline  = $true
 $Global:OSDCloudDrivers = $false
 
 Remove-Variable -Name OSDCloudDriverPack -Scope Global -ErrorAction SilentlyContinue
